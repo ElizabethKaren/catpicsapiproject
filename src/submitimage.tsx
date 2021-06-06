@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 
-interface SubmitImageProps {
+type SubmitImageProps = {
     eventHandler: (string: string) => void,
-    button: string
+    buttonText: string
 }
 
-const SubmitImage: React.FC<SubmitImageProps> = ({ eventHandler, button }) => {
+const SubmitImage: React.FC<SubmitImageProps> = ({ eventHandler, buttonText }) => {
 
     const [input, changeInput] = useState("")
 
@@ -19,7 +19,7 @@ const SubmitImage: React.FC<SubmitImageProps> = ({ eventHandler, button }) => {
     return (
         <div>
             <input onChange={(e) => handleOnChange(e)} value={input} />
-            <button onClick={() => handleOnClick()}>{button}</button>
+            <button onClick={() => handleOnClick()}>{buttonText}</button>
         </div>
     )
 }

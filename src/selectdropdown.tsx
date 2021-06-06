@@ -1,13 +1,17 @@
 import React from "react"
 
-interface Breed {
+type Breed = {
     id: string,
     name: string,
     description: string,
-    image: { url: string }
+    temperament: string,
+    wikipedia_url: string,
+    image: {
+        url: string
+    }
 }
 
-interface SelectDropdownProps {
+type SelectDropdownProps = {
     array: Breed[],
     onChangeFunc: (e: React.ChangeEvent<HTMLSelectElement>) => void
 }
@@ -21,7 +25,7 @@ const SelectDropdown: React.FC<SelectDropdownProps> = ({ array, onChangeFunc }) 
                 Fav Cat Breed:
             </label>
             <select onChange={(e) => onChangeFunc(e)}>
-                {array.map(obj => <option key={obj.id} value={obj.image.url}>{obj.name}</option>)}
+                {array.map(obj => <option key={obj.id} value={obj.description}>{obj.name}</option>)}
             </select>
         </div>
     )
